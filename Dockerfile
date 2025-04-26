@@ -1,7 +1,5 @@
-FROM docker.io/library/alpine:edge AS builder
+FROM docker.io/library/node:current-alpine AS builder
 ARG VITE_API_HOSTNAME
-
-RUN apk add --no-cache nodejs-current npm
 
 WORKDIR /src
 COPY . .
