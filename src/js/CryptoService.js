@@ -103,9 +103,31 @@ export default class CryptoService {
       }
     }
 
+    if (
+      signInfo.publicKeyFingerprint ===
+      '72:96:32:27:d6:6c:4c:4d:5f:a0:91:6a:c2:2c:79:3c:d4:5f:43:5c'
+    ) {
+      return {
+        status: true,
+        msg: 'Signature check passed (file is signed by LineageOS)',
+        signInfo: signInfo
+      }
+    }
+
+    if (
+      signInfo.publicKeyFingerprint ===
+      '46:0f:f8:cd:06:f7:ff:d7:56:b9:84:15:7b:27:3a:9c:50:92:be:62'
+    ) {
+      return {
+        status: true,
+        msg: 'Signature check passed (file is signed by Hawaii team)',
+        signInfo: signInfo
+      }
+    }
+
     return {
-      status: true,
-      msg: 'Signature check passed',
+      status: false,
+      msg: 'Signature check failed (file is not signed by LineageOS or Hawaii team)',
       signInfo: signInfo
     }
   }
