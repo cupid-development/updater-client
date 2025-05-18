@@ -1,6 +1,8 @@
 FROM docker.io/library/node:current-alpine AS builder
 ARG VITE_API_HOSTNAME
 
+RUN apk add git
+
 WORKDIR /src
 COPY . .
 
